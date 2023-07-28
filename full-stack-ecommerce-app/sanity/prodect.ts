@@ -10,6 +10,12 @@ export const prodect = {
 
         },
         {
+            name:'price',
+            title: 'Prodect Price',
+            type: 'number'
+
+        },
+        {
             name:'discription',
             title: 'Discription',
             type: 'string'
@@ -21,6 +27,17 @@ export const prodect = {
             type: 'image'
 
         },
+        {
+            name:'category',
+            title:'Prodect Category',
+            type:'reference',
+            to:[
+                {
+
+                    type:'category'
+                }
+            ]
+        }
     ]
 
 }
