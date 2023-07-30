@@ -4,7 +4,7 @@ export const category = {
     title:'Category',
     fields:[
         {
-            name:'naem',
+            name:'name',
             title:'Category name',
             type:'string'
 

@@ -1,15 +1,17 @@
-import Footer from "./components/Footer"
-import Header from "./components/Header"
 import Hero from "./components/Hero"
 import Newsletter from "./components/Newsletter"
+import Card from "./components/Card"
 
-export default function Home() {
+
+export default async function Home() {
+
+
   return (
     <>
-      <Header />
+     
       <Hero />
       <Newsletter />
-      <Footer />
+      
     </>
   )
 }
