@@ -39,7 +39,7 @@ const Card = async () => {
 
                                 return(
 
-                                    <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+                                    <div key={item._id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
                                     <a className="block relative h-48 rounded overflow-hidden">
                                         <Image alt="ecommerce" className="object-contain object-cover w-full h-full block" src={img} />
                                     </a>

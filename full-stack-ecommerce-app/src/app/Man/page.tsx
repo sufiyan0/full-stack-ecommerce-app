@@ -43,7 +43,7 @@ const page = async () => {
 
                         return(
 
-                            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+                            <div key={item._id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-96 rounded overflow-hidden">
                                 <Image alt="ecommerce" className="object-contain object-cover w-full h-full block" width={1000} height={1000} src={urlForImage(item.image).url()} />
                             </a>
