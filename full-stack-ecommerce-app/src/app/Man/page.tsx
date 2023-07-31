@@ -1,28 +1,24 @@
-
 import React from 'react'
 import { client } from '@/lib/sanityClient'
 import { Image as IImage } from "sanity"
 import Image from "next/image"
 import img from '../../../public/event.png'
+import { urlForImage } from '../../../sanity/lib/image'
+
 
 
 
 const getClient = async () => {
-    const res = await client.fetch(`*[_type=='product'] {
+    const res = await client.fetch(`*[_type=='product' && category -> name == 'Male'] {
     price,
     _id,
     title,
     image,
-    discription,
+    discription
   }`)
 
     return res
 }
-// *[_type == "person"]{
-//     _id, name,
-//     "movies": *[_type == "movie" && references(^._id)].title
-//   }
-
 interface IProduct {
     price: string,
     _id: string,
@@ -38,8 +34,8 @@ const page = async () => {
   return (
     <div>
 
-    <section className="text-gray-600 body-font">
-        <div className="text-7xl mx-auto items-center justify-center text-start flex mt-8">All Products</div>
+    <section className="text-gray-600 body-font mt-24">
+        <div className="text-7xl mx-auto items-center justify-center text-start flex mt-8">Man</div>
         <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
                 {
@@ -48,8 +44,8 @@ const page = async () => {
                         return(
 
                             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                            <a className="block relative h-48 rounded overflow-hidden">
-                                <Image alt="ecommerce" className="object-contain object-cover w-full h-full block" src={img} />
+                            <a className="block relative h-96 rounded overflow-hidden">
+                                <Image alt="ecommerce" className="object-contain object-cover w-full h-full block" width={1000} height={1000} src={urlForImage(item.image).url()} />
                             </a>
                             <div className="mt-4">
                                 <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{item.title}</h3>
@@ -74,4 +70,3 @@ const page = async () => {
 }
 
 export default page
-

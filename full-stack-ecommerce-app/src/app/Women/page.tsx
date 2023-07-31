@@ -9,7 +9,7 @@ import { urlForImage } from '../../../sanity/lib/image'
 
 
 const getClient = async () => {
-    const res = await client.fetch(`*[_type=='product'] {
+    const res = await client.fetch(`*[_type=='product' && category -> name == 'Female'] {
     price,
     _id,
     title,
@@ -35,7 +35,7 @@ const page = async () => {
     <div>
 
     <section className="text-gray-600 body-font mt-24">
-        <div className="text-7xl mx-auto items-center justify-center text-start flex mt-8">All Products</div>
+        <div className="text-7xl mx-auto items-center justify-center text-start flex mt-8">Women</div>
         <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
                 {
@@ -45,7 +45,7 @@ const page = async () => {
 
                             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
                             <a className="block relative h-96 rounded overflow-hidden">
-                                <Image alt="ecommerce" className="object-contain object-cover w-full h-full block" width={1000} height={1000} src={urlForImage(item.image).url()} />
+                                <Image alt="ecommerce" className="object-contain object-cover w-full h-full block w-[200px]" width={1000} height={1000} src={urlForImage(item.image).url()} />
                             </a>
                             <div className="mt-4">
                                 <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{item.title}</h3>
