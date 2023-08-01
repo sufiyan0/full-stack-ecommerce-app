@@ -8,12 +8,19 @@ export default async function Home() {
 
 
   return (
-    <>
-     
-      <Hero />
-      <TopSales/>
-      <Newsletter />
-      
-    </>
+
+
+    <div className="w-full mx-auto flex flex-col items-center justify-center mr-0 ">
+
+      <div className="">
+
+
+        <Hero />
+        <TopSales />
+        <Newsletter />
+
+      </div>
+    </div>
+
   )
 }
