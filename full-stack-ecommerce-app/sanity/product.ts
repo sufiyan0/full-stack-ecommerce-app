@@ -30,12 +30,14 @@ export const product = {
         {
             name:'category',
             title:'Prodect Category',
-            type:'reference',
-            to:[
-                {
-
-                    type:'category'
-                }
+            type:'string',
+            list:[
+                
+                    { title: "Mens", value: "mens" },
+                    { title: "Womens", value: "womens" },
+                    { title: "Kids", value: "kids" },
+                    
+                
             ]
         }
     ]
