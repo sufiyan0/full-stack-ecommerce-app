@@ -5,20 +5,11 @@ import Image from "next/image";
 import img from "../../../public/event.png";
 import { urlForImage } from "../../../sanity/lib/image";
 import Link from "next/link";
+import {getClient} from '../data'
+import {fulldata} from '../data'
 
 
-export const getClient = async () => {
-  const res = await client.fetch(`*[_type=='product'] {
-    price,
-    _id,
-    title,
-    image,
-    discription,
-    category
-  }`);
 
-  return res;
-};
 interface IProduct {
   price: string;
   _id: string;
@@ -31,9 +22,8 @@ interface IProduct {
 
 const page = async () => {
   const data: IProduct[] = await getClient();
+    // const data1:IProduct[] =  fulldata();
   return (
-    
-    
     <div>
       <section className="text-gray-600 body-font mt-24">
         <div className="text-7xl mx-auto items-center justify-center text-start flex mt-8">
