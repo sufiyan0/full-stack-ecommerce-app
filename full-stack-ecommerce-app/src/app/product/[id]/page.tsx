@@ -14,12 +14,7 @@ interface IProduct {
   image: IImage;
 }
 
-export async function generateStaticParams() {
-  const data = await getClient();
-  return data.map((item: any) => ({
-    product: item.slug.current,
-  }));
-}
+
 export default async function Page({ params }: { params: { id: string } }) {
   const getProducctDetail = async () => {
     const products: IProduct[] = await getClient();
