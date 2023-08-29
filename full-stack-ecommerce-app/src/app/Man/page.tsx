@@ -4,6 +4,7 @@ import { Image as IImage } from "sanity"
 import Image from "next/image"
 import img from '../../../public/event.png'
 import { urlForImage } from '../../../sanity/lib/image'
+import Link from 'next/link'
 
 
 
@@ -44,14 +45,17 @@ const page = async () => {
                         return(
 
                             <div key={item._id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                            <a className="block relative h-96 rounded overflow-hidden">
+                                <Link href={`/product/${item._id}`}>
+
+                            <div className="block relative h-96 rounded overflow-hidden">
                                 <Image alt="ecommerce" className="object-contain object-cover w-full h-full block hover:scale-110 hover:ease-in hover:duration-300" width={1000} height={1000} src={urlForImage(item.image).url()} />
-                            </a>
+                            </div>
                             <div className="mt-4">
                                 <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{item.title}</h3>
                                 <h2 className="text-gray-900 title-font text-lg font-medium">{item.title}</h2>
                                 <p className="mt-1">$ {item.price}</p>
                             </div>
+                                </Link>
                         </div>
                         )
                     })

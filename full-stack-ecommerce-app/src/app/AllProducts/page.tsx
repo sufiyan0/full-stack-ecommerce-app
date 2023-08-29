@@ -5,10 +5,8 @@ import Image from "next/image";
 import img from "../../../public/event.png";
 import { urlForImage } from "../../../sanity/lib/image";
 import Link from "next/link";
-import {getClient} from '../data'
-import {fulldata} from '../data'
-
-
+import { getClient } from "../data";
+import { fulldata } from "../data";
 
 interface IProduct {
   price: string;
@@ -18,11 +16,9 @@ interface IProduct {
   image: IImage;
 }
 
-
-
 const page = async () => {
   const data: IProduct[] = await getClient();
-    // const data1:IProduct[] =  fulldata();
+  // const data1:IProduct[] =  fulldata();
   return (
     <div>
       <section className="text-gray-600 body-font mt-24">
@@ -33,28 +29,26 @@ const page = async () => {
           <div className="flex flex-wrap -m-4">
             {data.map((item) => {
               return (
-                
-
                 <div key={item._id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                  <a className="block relative h-96 rounded overflow-hidden">
-                    <Image
-                      alt="ecommerce"
-                      className="object-contain object-cover w-full h-full block hover:scale-110 hover:ease-in hover:duration-300"
-                      width={1000}
-                      height={1000}
-                      src={urlForImage(item.image).url()}
-                    />
-                  </a>
                   <Link href={`/product/${item._id}`}>
-                  <div className="mt-4">
-                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      {item.title}
-                    </h3>
-                    <h2 className="text-gray-900 title-font text-lg font-medium">
-                      {item.title}
-                    </h2>
-                    <p className="mt-1">$ {item.price}</p>
-                  </div>
+                    <div className="block relative h-96 rounded overflow-hidden">
+                      <Image
+                        alt="ecommerce"
+                        className="object-contain object-cover w-full h-full block hover:scale-110 hover:ease-in hover:duration-300"
+                        width={1000}
+                        height={1000}
+                        src={urlForImage(item.image).url()}
+                      />
+                    </div>
+                    <div className="mt-4">
+                      <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                        {item.title}
+                      </h3>
+                      <h2 className="text-gray-900 title-font text-lg font-medium">
+                        {item.title}
+                      </h2>
+                      <p className="mt-1">$ {item.price}</p>
+                    </div>
                   </Link>
                 </div>
               );
@@ -62,8 +56,6 @@ const page = async () => {
           </div>
         </div>
       </section>
-     
-      
     </div>
   );
 };
