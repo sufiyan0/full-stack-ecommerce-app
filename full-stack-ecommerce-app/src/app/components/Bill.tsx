@@ -1,19 +1,23 @@
-import React from 'react'
+import React from "react";
 
-const Bill = (product:any) => {
-    // const total = () => {
-    //     const totolPrice = product.map(price:any => {
-    //         return(
-    //             newprice = newprice + price.product_price
-    //             )
-            
-    //     } )
-    // }
+const Bill = ({ price }: any) => {
+
+
+  const total = (price:any) => {
+    const totolPrice = price.map((pris: any) => {
+      let newprice = 0;
+      newprice = newprice + pris;
+      return newprice;
+    });
+  };
+
+
   return (
-    <div className='border bg-gray-300 '>
-        bill
+    <div className="border bg-gray-300 ">
+      {/* bill */}
+      <h1> {price}</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Bill
+export default Bill;

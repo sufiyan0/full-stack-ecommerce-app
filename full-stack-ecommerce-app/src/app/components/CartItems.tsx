@@ -7,14 +7,20 @@ export default function CartItems() {
   const [products, setProducts] = useState<any>(null);
   const [state, setState] = useState(false);
   const { isSignedIn, userId } = useAuth();
+  const [price , setPrice] = useState()
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/cart?user_id=${userId}`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data) 
+        // totalBalance(data)
+      }
+      );
   }, [isSignedIn, state]);
 
   async function deleteProduct(product_title: any) {
+
     const res = await fetch("/api/cart", {
       method: "DELETE",
       body: JSON.stringify({
@@ -25,16 +31,15 @@ export default function CartItems() {
     setState(!state);
   }
 
-  function totalBalance(product:any){
-    product.map((price:any) => {
-      const pris =  price.product_price;
-      
+  // function totalBalance(data:any){
+  //   data.map((price:any) => {
+  //     const total = 0;
+  //     const totalPrice = total + price.product_price
+  //     setPrice(totalPrice);
+  //     // console.log(totalPrice)
+  //   })
 
-
-       
-    })
-
-  }
+  // }
 
   return (
     <div className="flex flex-col min-h-screen  mt-16 mx-auto px-36  ">
@@ -44,8 +49,11 @@ export default function CartItems() {
       {isSignedIn ? (
         <div className="flex-col flex lg:flex-row flex-1 items-center justify-between">
           <div className="grid gap-14">
+            
             {products?.map((item: any, index: number) => (
+              
               <div className="flex" key={index} >
+                
 
                 <Image
                   src={item.image_url}
@@ -77,8 +85,9 @@ export default function CartItems() {
             ))}
           </div>
           <div className="">
+          <Bill price={price} /> 
+            
 
-          <Bill product={products} /> 
           </div>
         </div>
       ) : (
