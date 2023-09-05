@@ -1,23 +1,37 @@
-import React from "react";
 
-const Bill = ({ price }: any) => {
+// import React from "react";
 
+// const Bill =  ({products}:any) => {
+// // const [price , setPrice] = useState([])
+//  const getTotalPrice = (product:any)  => {
+//     return   products?.reduce((total:any, product:any) => total + (product.product_price * product.product_quantity));
+//   };
 
-  const total = (price:any) => {
-    const totolPrice = price.map((pris: any) => {
-      let newprice = 0;
-      newprice = newprice + pris;
-      return newprice;
-    });
-  };
+//   const price:any = getTotalPrice(products);
 
 
-  return (
-    <div className="border bg-gray-300 ">
-      {/* bill */}
-      <h1> {price}</h1>
-    </div>
-  );
-};
+// //   const total = (price:any) => {
+// //     const totolPrice = price.map((pris: any) => {
+// //       let newprice = 0;
+// //       newprice = newprice + pris;
+// //       return newprice;
+// //     });
+// //   };
 
-export default Bill;
+// // function cal(products:any){
+// //     products.map((item:any) => {  
+// //         setPrice( [...price, item.product_price])
+// //     })
+// // }
+
+// // let prices = getTotalPrice();
+
+// // {console.log(getTotalPrice(products))}
+//   return (
+//     <div className="border bg-gray-300 ">
+//       your total bill is {price}
+//     </div>
+//   );
+// };
+
+// export default Bill;

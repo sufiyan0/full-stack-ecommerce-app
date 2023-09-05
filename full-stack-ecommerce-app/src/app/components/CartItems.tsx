@@ -2,22 +2,39 @@
 import { useAuth } from "@clerk/nextjs";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Bill from "./Bill";
-export default function CartItems() {
+
+
+interface Product {
+  id: number;
+  image_url: string;
+  product_id: string;
+  product_price: number;
+  product_quantity: number;
+  product_title: string;
+  user_id: string;
+}
+
+
+
+export default  function CartItems() {
   const [products, setProducts] = useState<any>(null);
   const [state, setState] = useState(false);
   const { isSignedIn, userId } = useAuth();
-  const [price , setPrice] = useState()
+  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [price , setPrice] = useState<number>(0)
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/cart?user_id=${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data) 
-        // totalBalance(data)
+        console.log(data)
       }
       );
   }, [isSignedIn, state]);
+
+
+
 
   async function deleteProduct(product_title: any) {
 
@@ -31,15 +48,7 @@ export default function CartItems() {
     setState(!state);
   }
 
-  // function totalBalance(data:any){
-  //   data.map((price:any) => {
-  //     const total = 0;
-  //     const totalPrice = total + price.product_price
-  //     setPrice(totalPrice);
-  //     // console.log(totalPrice)
-  //   })
 
-  // }
 
   return (
     <div className="flex flex-col min-h-screen  mt-16 mx-auto px-36  ">
@@ -70,7 +79,11 @@ export default function CartItems() {
                   </h1>
                   <h1 className="text-2xl font-medium">
                     {" "}
-                    Total {item.product_quantity}
+                    Quantity {item.product_quantity}
+                  </h1>
+                  <h1 className="text-2xl font-medium">
+                    {" "}
+                    Total Price  {item.product_quantity * item.product_price}
                   </h1>
 
                   <button
@@ -80,14 +93,16 @@ export default function CartItems() {
                     DELETE
                   </button>
                 </div>
+                <div className="">
+                  
+                </div>
                 
+                {/* {` ${item.product_price * item.product_quantity}`} */}
               </div>
             ))}
           </div>
           <div className="">
-          <Bill price={price} /> 
             
-
           </div>
         </div>
       ) : (
