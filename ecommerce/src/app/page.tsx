@@ -1,9 +1,9 @@
 import React from "react"
-
+import {Product, FooterBanner,HeroBanner,Footer} from './components'
 export default function Home() {
   return (
     <>
-      HeroBanner 
+      <HeroBanner/> 
       <div className="products-heading">
         <h2>Best Selling Products</h2>
         <p>Speakers of many variation</p>
@@ -13,7 +13,7 @@ export default function Home() {
         <p>products</p>
       </div>
 
-      Footer
+      <FooterBanner/>
     </>
   )
 }
