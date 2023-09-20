@@ -9,7 +9,7 @@ const HeroBanner = () => {
             <h3>MID TEXT</h3>
             <img src="" alt="headphones" className='hero-banner-image' />
             <div className="">
-                <Link href="/product/ID">
+                <Link href="#">
                     <button type='button'>BUTTON TEXT</button>
                 </Link>
                 <div className="desc">
