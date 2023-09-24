@@ -1,20 +1,24 @@
 import Link from 'next/link'
 import React from 'react'
+import { urlForImage } from '../../../sanity/lib/image'
+import Image from 'next/image'
 
-const HeroBanner = () => {
+
+const HeroBanner = ({bannerData}:any) => {
+    
   return (
     <div className='hero-banner-container'>
         <div className="">
-            <p className='beats-solo'>SMALL TEXT</p>
-            <h3>MID TEXT</h3>
-            <img src="" alt="headphones" className='hero-banner-image' />
+            <p className='beats-solo'>{bannerData.smallText}</p>
+            <h3>{bannerData.midText}</h3>
+            <img src={urlForImage(bannerData.image).url()} alt="headphones" className='hero-banner-image' />
             <div className="">
                 <Link href="#">
-                    <button type='button'>BUTTON TEXT</button>
+                    <button type='button'>{bannerData.buttonText}</button>
                 </Link>
                 <div className="desc">
                     <h5>Description</h5>
-                    <p>DESCRIPTION</p>
+                    <p>{bannerData.desc}</p>
                 </div>
             </div>
 

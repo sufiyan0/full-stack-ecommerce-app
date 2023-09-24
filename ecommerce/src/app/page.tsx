@@ -1,43 +1,71 @@
+// import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+ 
 import React from "react";
 import { Product, FooterBanner, HeroBanner, Footer } from "./components";
 import { client } from "../lib/sanityClient";
 
-const getClient = async () => {
-  const res = await client.fetch(`*[_type=='product' ]`)
+const getClientProducts = async () => {
+  const res = await client.fetch(`*[_type=='product']`)
+
+  return res
+}
+const getClientBanner = async () => {
+  const res = await client.fetch(`*[_type=='banner' ]`)
 
   return res
 }
 
-export default async function Home({ products, bannerData }:any) {
-  const data:any = await getClient()
 
+// export const getServerSideProps = async () => {
+//   const query =  `*[_type=='product']`;
+//   const products = await client.fetch(query);
+//   // const repo = await products.json()    
+//   // const bannerQuery = '*[_type == "banner"]';
+//   const bannerData = await client.fetch(`*[_type == 'banner]`);
+//   return {
+//     props: { products, bannerData }
+//   };
+// };
+
+
+
+interface productdataint{
+    image: { _type: string, asset: [Object] },
+    detaildscription: string,
+    name:string,
+    shortdiscription:string,
+    category:string,
+    title: string,
+    _updatedAt?: string,
+    price: number,
+    _createdAt?: string,
+    _rev?:string,
+    _type:string,
+    _id: string
+}
+
+export default async function Home() {
+  const products = await getClientProducts()
+  const bannerData = await getClientBanner()
+  // console.log(bannerData)
+  // console.log(products)
   return (
-
+    
     <>
-      <HeroBanner />
+      <HeroBanner bannerData={bannerData.length && bannerData[0]} />
       <div className="products-heading">
         <h2>Best Selling Products</h2>
         <p>Speakers of many variation</p>
       </div>
-      
-      <div className="products-container">
-      
-        <p>products</p>
+      <div className="products-container">   
+        {/* <p>products</p> */}
+        {products.map((product:any) => <Product key={product._id} item={product}  />
+        )}
       </div>
 
-      <FooterBanner />
+      <FooterBanner bannerdata={bannerData[0]}/>
     </>
   );
 }
 
-export const getServerSideProps = async () => {
-  const query = `*[_type == "product"]`;
-  const products = await client.fetch(query);    
 
-  const bannerQuery = '*[_type == "banner"]';
-  const bannerData = await client.fetch(bannerQuery);
-
-  return {
-    props: { products, bannerData },
-  };
-};

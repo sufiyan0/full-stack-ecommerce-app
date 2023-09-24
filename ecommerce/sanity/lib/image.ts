@@ -5,12 +5,12 @@ import { dataset, projectId } from '../env'
 import { client } from '@/lib/sanityClient'
 
 
-const imageBuilder = createImageUrlBuilder(client)
+// const imageBuilder = createImageUrlBuilder(client)
 
-// const imageBuilder = createImageUrlBuilder({
-//   projectId: projectId || '',
-//   dataset: dataset || '',
-// })
+const imageBuilder = createImageUrlBuilder({
+  projectId: projectId || '',
+  dataset: dataset || '',
+})
 
 
 export const urlForImage = (source: Image) => {

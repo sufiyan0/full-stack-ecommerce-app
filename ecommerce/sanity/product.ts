@@ -39,6 +39,7 @@ export default {
                 { title: "Mens", value: "mens" },
                 { title: "Womens", value: "womens" },
                 { title: "Kids", value: "kids" },
+                { title: "Electronics", value: "electronics" },
             ]
         }
         
@@ -46,7 +47,7 @@ export default {
     {
         name:'image',
         title:'Product Image',
-        type:'image',
+        type: 'array',
         of:[{type:'image'}],
         options:{
             hotspot:true
