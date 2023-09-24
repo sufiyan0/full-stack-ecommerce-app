@@ -4,20 +4,22 @@ import Image from 'next/image'
 import { urlForImage } from '../../../sanity/lib/image'
 // : {image,name,slug,price}
 
-const Product = ({item : {image,name,slug,price} }:any) => {
+const Product = ({item}:any) => {
 
 
 
 
   // console.log(image[0]) 
+  console.log(item.slug)
+
   return (
     <div>
-      <Link href={`/product/`}>
+      <Link href={`/product/'${item.slug}'`}>
         <div className="product-card">
         
-          <img src={urlForImage(image && image[0]).url()} alt={image}  width={250} height={250} className='product-image'/> 
-          <p className='product-name'>{name}</p>
-          <p className='product-price'>${price}</p>
+          <img src={urlForImage(item.image && item.image[0]).url()} alt={item.image}  width={250} height={250} className='product-image'/> 
+          <p className='product-name'>{item.name}</p>
+          <p className='product-price'>${item.price}</p>
 
 
           

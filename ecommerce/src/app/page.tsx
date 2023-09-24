@@ -1,7 +1,7 @@
 // import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
  
 import React from "react";
-import { Product, FooterBanner, HeroBanner, Footer } from "./components";
+import { Product, FooterBanner, HeroBanner} from "./components";
 import { client } from "../lib/sanityClient";
 
 const getClientProducts = async () => {
@@ -48,7 +48,7 @@ export default async function Home() {
   const products = await getClientProducts()
   const bannerData = await getClientBanner()
   // console.log(bannerData)
-  // console.log(products)
+  console.log(products)
   return (
     
     <>
