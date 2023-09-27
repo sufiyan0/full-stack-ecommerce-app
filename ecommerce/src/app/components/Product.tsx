@@ -10,11 +10,11 @@ const Product = ({item}:any) => {
 
 
   // console.log(image[0]) 
-  console.log(item.slug)
+  // console.log(item.slug)
 
   return (
     <div>
-      <Link href={`/product/'${item.slug}'`}>
+      <Link href={`/product/'${item.slug.current}'`}>
         <div className="product-card">
         
           <img src={urlForImage(item.image && item.image[0]).url()} alt={item.image}  width={250} height={250} className='product-image'/> 

@@ -9,7 +9,7 @@ const getClientProducts = async () => {
 
   return res
 }
-const getClientBanner = async () => {
+const getClientBanner  = async () => {
   const res = await client.fetch(`*[_type=='banner' ]`)
 
   return res
@@ -48,7 +48,7 @@ export default async function Home() {
   const products = await getClientProducts()
   const bannerData = await getClientBanner()
   // console.log(bannerData)
-  console.log(products)
+  // console.log(products)
   return (
     
     <>
