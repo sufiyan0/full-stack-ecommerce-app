@@ -1,8 +1,10 @@
 // import { Head } from "next/document";
-import Navbar from "./components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import Footer from '../../src/app/components/Footer'
+import { Layout } from "./layout";
+export { Layout } from "./components/";
+
+
 
 export const metadata: Metadata = {
   title: "DelightShop",
@@ -17,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning={true} className="layout">
         <div className="">
-          <Navbar /> {children} <Footer/> {" "} 
+          <Layout>{children}</Layout>
         </div>
       </body>
     </html>
