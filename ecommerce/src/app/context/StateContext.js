@@ -38,7 +38,7 @@ export const StateContext = ({ children }) => {
     product.quantity = quantity;
     setCartItem([...cartItem, { ...product }]);
   }
-  toast(`${qty} ${product.name} added to the cart.`);
+  toast(`${qty} ${product[0].name} added to the cart.`);
   };
 
   const incQty = () => {
