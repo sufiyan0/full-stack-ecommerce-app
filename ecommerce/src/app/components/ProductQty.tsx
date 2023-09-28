@@ -3,10 +3,11 @@ import React from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { useStateContect } from "../context/StateContext";
 import product from "../../../sanity/product";
+import { Toaster } from "react-hot-toast";
 
-const Allproduct = ({product}:any) => {
-  const { decQty, incQty, qty,onadd,cartItem } = useStateContect();
- 
+const Allproduct = ({ product }: any) => {
+  const { decQty, incQty, qty, onadd, cartItem } = useStateContect();
+
   return (
     <div className="">
       <div className="quantity">
@@ -22,8 +23,13 @@ const Allproduct = ({product}:any) => {
         </p>
       </div>
       <div className="buttons">
-        <button type="button" className="add-to-cart" onClick={() =>  onadd(product,qty)}>
+        <button
+          type="button"
+          className="add-to-cart"
+          onClick={() => onadd(product[0], qty)}
+        >
           Add to Cart
+          <Toaster />
         </button>
         <button type="button" className="buy-now">
           Buy Now

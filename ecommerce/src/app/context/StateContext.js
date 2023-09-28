@@ -14,6 +14,7 @@ export const StateContext = ({ children }) => {
   const [qty, setQty] = useState(1);
 
   const onadd = (product, quantity) => {
+    console.log(product)
     const checkProductInCart = cartItem.find(
       (item) => item._id === product._id
     );
@@ -23,21 +24,21 @@ export const StateContext = ({ children }) => {
       );
       setTotalQuantities((prevTotalQuantiteis) => prevTotalQuantiteis + 1);
       
-      toast(`${qty} ${product.name} added to the cart.`);
-    if (checkProductInCart) {
-      const updateCartitems = cartItem.map((cartProduct) => {
-        if (cartProduct._id === product._id)
+      if (checkProductInCart) {
+        const updateCartitems = cartItem.map((cartProduct) => {
+          if (cartProduct._id === product._id)
           return {
-            ...cartProduct,
-            quantity: cartProduct.quantity + quantity,
-          };
-      });
-
-      setCartItem(updateCartitems);
-    } else {
-      product.quantity = quantity;
-      setCartItem([...cartItem, { ...product }]);
-    }
+        ...cartProduct,
+        quantity: cartProduct.quantity + quantity,
+      };
+    });
+    
+    setCartItem(updateCartitems);
+  } else {
+    product.quantity = quantity;
+    setCartItem([...cartItem, { ...product }]);
+  }
+  toast(`${qty} ${product.name} added to the cart.`);
   };
 
   const incQty = () => {
