@@ -1,4 +1,3 @@
-// 'use client'
 import { client } from "@/lib/sanityClient";
 import React from "react";
 import { urlForImage } from "../../../../sanity/lib/image";
@@ -32,7 +31,7 @@ const page = async ({ params: { slug } }) => {
   
   return (
     <div>
-      {console.log(data[0].image)}
+      {/* {console.log(data[0].image)} */}
       <div className="product-detail-container">
         <div>
           <ProductImage data={data[0].image}/>
@@ -54,17 +53,10 @@ const page = async ({ params: { slug } }) => {
           <h4>Details: </h4>
           <p>{data[0].detaildscription}</p>
           <p className="price">${data[0].price}</p>
-          <div className="quantity">
-            <ProductQty />
+          <div className="">
+            <ProductQty product={data} />
           </div>
-          <div className="buttons">
-            <button type="button" className="add-to-cart">
-              Add to Cart
-            </button>
-            <button type="button" className="buy-now">
-              Buy Now
-            </button>
-          </div>
+         
         </div>
       </div>
 
