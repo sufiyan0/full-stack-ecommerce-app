@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { useStateContect } from "../context/StateContext";
+import { useStateContext } from "../context/StateContext";
 import product from "../../../sanity/product";
 import { Toaster } from "react-hot-toast";
 
 const Allproduct = ({ product }: any) => {
-  const { decQty, incQty, qty, onadd, cartItem } = useStateContect();
+  const { decQty, incQty, qty, onadd, cartItem } = useStateContext();
 
   return (
     <div className="">
+      <Toaster />
       <div className="quantity">
         <h3>Quantity:</h3>
         <p className="quantity-desc">
@@ -29,7 +30,7 @@ const Allproduct = ({ product }: any) => {
           onClick={() => onadd(product, qty)}
         >
           Add to Cart
-          <Toaster />
+          
         </button>
         <button type="button" className="buy-now">
           Buy Now
