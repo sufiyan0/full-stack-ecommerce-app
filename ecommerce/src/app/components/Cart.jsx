@@ -14,9 +14,9 @@ import { urlForImage } from "../../../sanity/lib/image";
 
 const Cart = () => {
   const useref = useRef();
-  const { totalPrice, totalQuantities, cartItem, setShowCart } =
+  const { totalPrice, totalQuantities, cartItem, setShowCart,toggleCartItemQuanitity ,onRemove} =
     useStateContext();
-  console.log(cartItem);
+  // console.log(cartItem);
   return (
     <div className="cart-wrapper">
       <div className="cart-container">
@@ -62,16 +62,16 @@ const Cart = () => {
                   <div className="flex bottom">
                     <div>
                       <p className="quantity-desc">
-                        <span className="minus" onClick="">
+                        <span className="minus" onClick={ () => toggleCartItemQuanitity( item._id,"dec")}>
                           <AiOutlineMinus />
                         </span>
-                        <span className="num">0</span>
-                        <span className="plus" onClick="">
+                        <span className="num">{item.quantity}</span>
+                        <span className="plus" onClick={ () =>  toggleCartItemQuanitity( item._id,"inc")}>
                           <AiOutlinePlus />
                         </span>
                       </p>
                     </div>
-                    <button type="button" className="remove-item" onClick=''><TiDeleteOutline/></button>
+                    <button type="button" className="remove-item" onClick={() => onRemove(item)}><TiDeleteOutline/></button>
                   </div>
                 </div>
               </div>
