@@ -4,7 +4,7 @@ import { urlForImage } from "../../../sanity/lib/image";
 import Image from "next/image";
 
 const FooterBanner = ({ bannerdata }: any) => {
-  // console.log(bannerdata);
+ 
   return (
     <div className="footer-banner-container">
       <div className="banner-desc">
