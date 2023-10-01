@@ -27,7 +27,7 @@ const Allproduct = ({ product }: any) => {
         <button
           type="button"
           className="add-to-cart"
-          onClick={() => onadd(product, qty)}
+          onClick={() => onadd(product[0], qty)}
         >
           Add to Cart
           
