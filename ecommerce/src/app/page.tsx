@@ -15,16 +15,15 @@ const getClientBanner = async () => {
   return res;
 };
 
-// export const getServerSideProps = async () => {
-//   const query =  `*[_type=='product']`;
-//   const products = await client.fetch(query);
-//   // const repo = await products.json()
-//   // const bannerQuery = '*[_type == "banner"]';
-//   const bannerData = await client.fetch(`*[_type == 'banner]`);
-//   return {
-//     props: { products, bannerData }
-//   };
-// };
+export const getServerSideProps = async () => {
+  const query =  `*[_type=='product']`;
+  const products = await client.fetch(query);
+ 
+  const bannerData = await client.fetch(`*[_type == 'banner]`);
+  return {
+    props: { products, bannerData }
+  };
+};
 
 interface productdataint {
   image: { _type: string; asset: [Object] };
