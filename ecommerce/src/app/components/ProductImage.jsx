@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 import { urlForImage } from "../../../sanity/lib/image";
 
@@ -9,16 +10,18 @@ const ProductImage = ({ data }) => {
     <div className="product-detail-container">
       <div>
         <div className="image-container">
-          <img
+          <Image
             src={urlForImage(data[index]).url()}
             className="product-detail-image"
+            alt="ProductImage"
           />
         </div>
         <div className="small-images-container">
           {data?.map((item, i) => (
-            <img
+            <Image
               key={i}
               src={urlForImage(item).url()}
+              alt="productImage"
               className={
                 i === index ? "small-image selected-image" : "small-image"
               }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { urlForImage } from "../../../sanity/lib/image";
+import Image from "next/image";
 
 const FooterBanner = ({ bannerdata }: any) => {
   // console.log(bannerdata);
@@ -19,7 +20,7 @@ const FooterBanner = ({ bannerdata }: any) => {
           <p>{bannerdata.desc}</p>
           <Link href={`/product/`}><button className="button">{bannerdata.buttonText}</button></Link>
         </div>
-        <img src={urlForImage(bannerdata.image).url()} alt="bannerimg" className="footer-banner-image" />
+        <Image src={urlForImage(bannerdata.image).url()} alt="bannerimg" className="footer-banner-image" />
       </div>
     </div>
   );

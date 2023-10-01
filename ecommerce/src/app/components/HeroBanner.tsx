@@ -11,7 +11,7 @@ const HeroBanner = ({bannerData}:any) => {
         <div className="">
             <p className='beats-solo'>{bannerData.smallText}</p>
             <h3>{bannerData.midText}</h3>
-            <img src={urlForImage(bannerData.image).url()} alt="headphones" className='hero-banner-image' />
+            <Image src={urlForImage(bannerData.image).url()} alt="headphones" className='hero-banner-image' />
             <div className="">
                 <Link href="#">
                     <button type='button'>{bannerData.buttonText}</button>
