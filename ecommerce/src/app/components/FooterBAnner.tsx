@@ -20,7 +20,7 @@ const FooterBanner = ({ bannerdata }: any) => {
           <p>{bannerdata.desc}</p>
           <Link href={`/product/`}><button className="button">{bannerdata.buttonText}</button></Link>
         </div>
-        <Image src={urlForImage(bannerdata.image).url()} alt="bannerimg" className="footer-banner-image" />
+        <Image src={urlForImage(bannerdata.image).url()} alt="bannerimg" className="footer-banner-image" width={500} height={500}/>
       </div>
     </div>
   );
