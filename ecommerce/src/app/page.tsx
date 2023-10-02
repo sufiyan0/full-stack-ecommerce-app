@@ -1,7 +1,7 @@
 // import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 
 import React from "react";
-import { Product, FooterBanner, HeroBanner } from "./components";
+import { Product, HeroBanner } from "./components";
 import { client } from "../lib/sanityClient";
 
 const getClientProducts = async () => {
@@ -50,7 +50,7 @@ export default async function Home() {
         ))}
       </div>
 
-      <FooterBanner bannerdata={bannerData[0]} />
+      {/* <FooterBanner bannerdata={bannerData[0]} /> */}
     </>
   );
 }
