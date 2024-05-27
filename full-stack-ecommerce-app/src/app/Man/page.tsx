@@ -31,6 +31,7 @@ interface IProduct {
 
 
 const page = async () => {
+    
     const data: IProduct[] = await getClient()
   return (
     <div>
